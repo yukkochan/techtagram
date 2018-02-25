@@ -14,6 +14,8 @@
 		0A9ED38520368AEB0031B4D9 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0A9ED38320368AEB0031B4D9 /* LaunchScreen.storyboard */; };
 		0A9ED39020368AEB0031B4D9 /* TechtagramTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A9ED38F20368AEB0031B4D9 /* TechtagramTests.swift */; };
 		0A9ED39B20368AEB0031B4D9 /* TechtagramUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A9ED39A20368AEB0031B4D9 /* TechtagramUITests.swift */; };
+		0A9ED3E3203823180031B4D9 /* pom.png in Resources */ = {isa = PBXBuildFile; fileRef = 0A9ED3E2203823180031B4D9 /* pom.png */; };
+		0A9ED3E520382E160031B4D9 /* icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 0A9ED3E420382E160031B4D9 /* icon.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -47,6 +49,8 @@
 		0A9ED39620368AEB0031B4D9 /* TechtagramUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TechtagramUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		0A9ED39A20368AEB0031B4D9 /* TechtagramUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TechtagramUITests.swift; sourceTree = "<group>"; };
 		0A9ED39C20368AEB0031B4D9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		0A9ED3E2203823180031B4D9 /* pom.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = pom.png; sourceTree = "<group>"; };
+		0A9ED3E420382E160031B4D9 /* icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -97,6 +101,8 @@
 		0A9ED37920368AEB0031B4D9 /* Techtagram */ = {
 			isa = PBXGroup;
 			children = (
+				0A9ED3E2203823180031B4D9 /* pom.png */,
+				0A9ED3E420382E160031B4D9 /* icon.png */,
 				0A9ED37A20368AEB0031B4D9 /* AppDelegate.swift */,
 				0A9ED37C20368AEB0031B4D9 /* ViewController.swift */,
 				0A9ED37E20368AEB0031B4D9 /* Main.storyboard */,
@@ -233,7 +239,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				0A9ED38520368AEB0031B4D9 /* LaunchScreen.storyboard in Resources */,
+				0A9ED3E520382E160031B4D9 /* icon.png in Resources */,
 				0A9ED38220368AEB0031B4D9 /* Assets.xcassets in Resources */,
+				0A9ED3E3203823180031B4D9 /* pom.png in Resources */,
 				0A9ED38020368AEB0031B4D9 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -427,7 +435,9 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = KZ24M5BARQ;
 				INFOPLIST_FILE = Techtagram/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.2;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.Yukiko.Techtagram;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -441,7 +451,9 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = KZ24M5BARQ;
 				INFOPLIST_FILE = Techtagram/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.2;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.Yukiko.Techtagram;
 				PRODUCT_NAME = "$(TARGET_NAME)";
