@@ -156,10 +156,11 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     
     @IBAction func save() {
 //        UIImageWriteToSavedPhotosAlbum(haikeiimageView.image!, nil, nil, nil)
-        let rect:CGRect = CGRect(x: 0, y: 0, width: 376, height: 465)
-        UIGraphicsBeginImageContext(rect.size)
+        UIGraphicsBeginImageContext(haikeiimageView.frame.size)
+        let context = UIGraphicsGetCurrentContext()!
+        context.translateBy(x: -haikeiimageView.frame.origin.x, y: -haikeiimageView.frame.origin.y)
 //
-        self.view.layer.render(in: UIGraphicsGetCurrentContext()!)
+        self.view.layer.render(in: context)
         let capture = UIGraphicsGetImageFromCurrentImageContext()
 //        UIGraphicsEndImageContext()
 //        フォトライブラリに保存
