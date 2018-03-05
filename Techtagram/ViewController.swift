@@ -35,7 +35,8 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         let tWidth: CGFloat = 200
         let tHeight: CGFloat = 30
         let posX: CGFloat = (self.view.bounds.width - tWidth)/2
-        let posY: CGFloat = 460
+        let posY: CGFloat = 300
+        
         
         myTextField = UITextField(frame: CGRect(x: posX, y: posY, width: tWidth, height: tHeight))
         myTextField.text = "Hello"
@@ -43,7 +44,7 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         myTextField.borderStyle = .roundedRect
         myTextField.clearButtonMode = .whileEditing
         self.view.addSubview(myTextField)
-        label.text = ""
+        
        
     }
     
@@ -139,13 +140,13 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     @IBAction func applyFilter() {
         let filterImage: CIImage = CIImage(image: originalImage)!
         
-        filter = CIFilter(name: "CIColorControls")!
+        filter = CIFilter(name: "CISepiaTone")!
         filter.setValue(filterImage, forKey: kCIInputImageKey)
-        
-        filter.setValue(1.0, forKey: "inputSaturation")
-        filter.setValue(0.5, forKey: "inputBrightness")
-        filter.setValue(2.5, forKey: "inputContrast")
-        
+//
+//        filter.setValue(1.0, forKey: "inputSaturation")
+//        filter.setValue(0.5, forKey: "inputBrightness")
+//        filter.setValue(2.5, forKey: "inputContrast")
+//
         let ctx = CIContext(options: nil)
         let cgImage = ctx.createCGImage(filter.outputImage!, from: filter.outputImage!.extent)
         cameraImageView.image = UIImage(cgImage: cgImage!)
@@ -196,6 +197,7 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     
     func textFieldDidBeginEditing(_ textField: UITextField) {
         print("textFieldDidBeginEditing: \(textField.text!)")
+
         
     }
     
@@ -205,10 +207,13 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     }
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         print("textFieldShouldReturn \(textField.text!)")
+        label.text = textField.text
       
         
         // 改行ボタンが押されたらKeyboardを閉じる処理.
         textField.resignFirstResponder()
+        textField.text = ""
+        myTextField.removeFromSuperview()
         
         return true
     }

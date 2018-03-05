@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0A192939204D2F0100957C52 /* cyeki.png in Resources */ = {isa = PBXBuildFile; fileRef = 0A192938204D2F0100957C52 /* cyeki.png */; };
 		0A9ED37B20368AEB0031B4D9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A9ED37A20368AEB0031B4D9 /* AppDelegate.swift */; };
 		0A9ED37D20368AEB0031B4D9 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A9ED37C20368AEB0031B4D9 /* ViewController.swift */; };
 		0A9ED38020368AEB0031B4D9 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0A9ED37E20368AEB0031B4D9 /* Main.storyboard */; };
@@ -36,6 +37,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		0A192938204D2F0100957C52 /* cyeki.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = cyeki.png; sourceTree = "<group>"; };
 		0A9ED37720368AEB0031B4D9 /* Techtagram.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Techtagram.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0A9ED37A20368AEB0031B4D9 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		0A9ED37C20368AEB0031B4D9 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -103,6 +105,7 @@
 			children = (
 				0A9ED3E2203823180031B4D9 /* pom.png */,
 				0A9ED3E420382E160031B4D9 /* icon.png */,
+				0A192938204D2F0100957C52 /* cyeki.png */,
 				0A9ED37A20368AEB0031B4D9 /* AppDelegate.swift */,
 				0A9ED37C20368AEB0031B4D9 /* ViewController.swift */,
 				0A9ED37E20368AEB0031B4D9 /* Main.storyboard */,
@@ -241,6 +244,7 @@
 				0A9ED38520368AEB0031B4D9 /* LaunchScreen.storyboard in Resources */,
 				0A9ED3E520382E160031B4D9 /* icon.png in Resources */,
 				0A9ED38220368AEB0031B4D9 /* Assets.xcassets in Resources */,
+				0A192939204D2F0100957C52 /* cyeki.png in Resources */,
 				0A9ED3E3203823180031B4D9 /* pom.png in Resources */,
 				0A9ED38020368AEB0031B4D9 /* Main.storyboard in Resources */,
 			);
