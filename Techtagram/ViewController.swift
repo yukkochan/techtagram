@@ -155,7 +155,14 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     
     
     @IBAction func save() {
-        UIImageWriteToSavedPhotosAlbum(cameraImageView.image!, nil, nil, nil)
+//        UIImageWriteToSavedPhotosAlbum(cameraImageView.image!, nil, nil, nil)
+        let rect:CGRect = CGRect(x: 0, y:200, width: 376, height: 620)
+        UIGraphicsBeginImageContext(rect.size)
+        self.view.layer.render(in: UIGraphicsGetCurrentContext()!)
+        let capture = UIGraphicsGetImageFromCurrentImageContext()
+        UIGraphicsEndImageContext()
+//        フォトライブラリに保存
+        UIImageWriteToSavedPhotosAlbum(capture!, nil, nil, nil)
         
     }
     @IBAction func openAlbum() {
