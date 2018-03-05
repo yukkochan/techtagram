@@ -24,6 +24,7 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     
     
     var originalImage: UIImage!
+    @IBOutlet var haikeiimageView: UIImageView!
     var filter: CIFilter!
     
     
@@ -153,18 +154,27 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         
     }
     
-    
     @IBAction func save() {
-//        UIImageWriteToSavedPhotosAlbum(cameraImageView.image!, nil, nil, nil)
-        let rect:CGRect = CGRect(x: 0, y:200, width: 376, height: 620)
+//        UIImageWriteToSavedPhotosAlbum(haikeiimageView.image!, nil, nil, nil)
+        let rect:CGRect = CGRect(x: 0, y: 0, width: 376, height: 465)
         UIGraphicsBeginImageContext(rect.size)
+//
         self.view.layer.render(in: UIGraphicsGetCurrentContext()!)
         let capture = UIGraphicsGetImageFromCurrentImageContext()
-        UIGraphicsEndImageContext()
+//        UIGraphicsEndImageContext()
 //        フォトライブラリに保存
+//        UIGraphicsBeginImageContext(self.haikeiimageView.bounds.size)
+//        let context = UIGraphicsGetCurrentContext()!
+//
+//        //Affine変換
+//        let affineMoveLeftTop = CGAffineTransform(translationX: 100, y: 100)
+//        context.concatenate(affineMoveLeftTop)
+//        // 現在のcontextのビットマップをUIImageとして取得.
+//        let clippedImage = UIGraphicsGetImageFromCurrentImageContext()
         UIImageWriteToSavedPhotosAlbum(capture!, nil, nil, nil)
-        
+//
     }
+    
     @IBAction func openAlbum() {
         
         if UIImagePickerController.isSourceTypeAvailable(.photoLibrary) {
