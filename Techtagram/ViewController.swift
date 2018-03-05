@@ -9,13 +9,19 @@
 import UIKit
 import  Accounts
 
-class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate, UITextFieldDelegate {
+    
+    private var myTextField: UITextField!
     
     var imageNameArray: [String] = ["pom"]
     var imageIndex: Int = 0
     var imageView: UIImageView!
+ 
     
     @IBOutlet var cameraImageView: UIImageView!
+    @IBOutlet var label: UILabel!
+    
+    
     
     var originalImage: UIImage!
     var filter: CIFilter!
@@ -25,7 +31,27 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
+        
+        let tWidth: CGFloat = 200
+        let tHeight: CGFloat = 30
+        let posX: CGFloat = (self.view.bounds.width - tWidth)/2
+        let posY: CGFloat = 460
+        
+        myTextField = UITextField(frame: CGRect(x: posX, y: posY, width: tWidth, height: tHeight))
+        myTextField.text = "Hello"
+        myTextField.delegate = self
+        myTextField.borderStyle = .roundedRect
+        myTextField.clearButtonMode = .whileEditing
+        self.view.addSubview(myTextField)
+        label.text = ""
+       
     }
+    
+
+        
+        
+        
+    
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         let touch: UITouch = touches.first!
@@ -42,7 +68,7 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
 //            let y = imageView.center.y
 //            if y < 420  {
 //                self.view.addSubview(imageView)
-            if (50...340 ~= location.x  && 110...410 ~= location.y )  {
+            if (30...320 ~= location.x  && 220...510 ~= location.y )  {
                 self.view.addSubview(imageView)
                 imageView.center = CGPoint(x: location.x, y: location.y)
             } else {
@@ -76,34 +102,38 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         dismiss(animated: true, completion: nil)
     }
     
-    func drawText(image: UIImage) -> UIImage {
-        let text = "photo by Yukiko"
-        let textFontAttributes = [
-            NSAttributedStringKey.font: UIFont(name: "Arial", size: 25)!,
-            NSAttributedStringKey.foregroundColor: UIColor.white
-        ]
+//    func drawText(image: UIImage) -> UIImage {
+//        let text = "photo by Yukiko"
+//        let textFontAttributes = [
+//            NSAttributedStringKey.font: UIFont(name: "Arial", size: 25)!,
+//            NSAttributedStringKey.foregroundColor: UIColor.white
+//        ]
+//
+//        UIGraphicsBeginImageContext(image.size)
+//        image.draw(in: CGRect(x: 0, y: 0, width: image.size.width, height: image.size.height))
+//
+//        let margin: CGFloat = 5.0
+//        let textRect = CGRect(x: margin, y: margin, width: image.size.width - margin, height: image.size.height - margin)
+//
+//        text.draw(in: textRect, withAttributes: textFontAttributes)
+//        let newImage = UIGraphicsGetImageFromCurrentImageContext()
+//        UIGraphicsEndImageContext()
+//
+//        return newImage!
+//
+//    }
+//
     
-        UIGraphicsBeginImageContext(image.size)
-        image.draw(in: CGRect(x: 0, y: 0, width: image.size.width, height: image.size.height))
-        
-        let margin: CGFloat = 5.0
-        let textRect = CGRect(x: margin, y: margin, width: image.size.width - margin, height: image.size.height - margin)
-        
-        text.draw(in: textRect, withAttributes: textFontAttributes)
-        let newImage = UIGraphicsGetImageFromCurrentImageContext()
-        UIGraphicsEndImageContext()
-        
-        return newImage!
+//    @IBAction func onTappedTextButton() {
+//        if cameraImageView.image != nil {
+//            cameraImageView.image = drawText(image: cameraImageView.image!)
+//
+//        } else {
+//            print("画像がありません")
+//        }
+//    }
+//
     
-    }
-    @IBAction func onTappedTextButton() {
-        if cameraImageView.image != nil {
-            cameraImageView.image = drawText(image: cameraImageView.image!)
-            
-        } else {
-            print("画像がありません")
-        }
-    }
     
     
     @IBAction func applyFilter() {
@@ -121,6 +151,8 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         cameraImageView.image = UIImage(cgImage: cgImage!)
         
     }
+    
+    
     @IBAction func save() {
         UIImageWriteToSavedPhotosAlbum(cameraImageView.image!, nil, nil, nil)
         
@@ -161,7 +193,26 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
+    
+    func textFieldDidBeginEditing(_ textField: UITextField) {
+        print("textFieldDidBeginEditing: \(textField.text!)")
+        
+    }
+    
+    func textFieldDidEndEditing(_ textField: UITextField) {
+        print("textFieldDidEndEditing: \(textField.text!)")
 
+    }
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        print("textFieldShouldReturn \(textField.text!)")
+      
+        
+        // 改行ボタンが押されたらKeyboardを閉じる処理.
+        textField.resignFirstResponder()
+        
+        return true
+    }
+   
 
 }
 
